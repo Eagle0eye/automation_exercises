@@ -1,4 +1,4 @@
 package testing.mappers;
 
-public class NewUserFormMapper {
+public class RegisterMapper {
 }

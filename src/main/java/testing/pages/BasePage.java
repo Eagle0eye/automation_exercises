@@ -1,6 +1,6 @@
-package pages;
+package testing.pages;
 
-import interfaces.baseActions;
+import testing.interfaces.baseActions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;

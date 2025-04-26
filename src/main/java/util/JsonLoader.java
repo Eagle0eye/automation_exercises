@@ -8,13 +8,13 @@ import java.io.File;
 import java.io.IOException;
 
 public class JsonLoader {
-    private static final String baseDir = "/home/yousef/dumy/QA-Testing/AutoDev/src/main/resources/test-data";
+    private static final String basePath = "/home/yousef/dumy/QA-Testing/automation_exercises/src/main/resources";
     private static final Logger logger = LoggerFactory.getLogger(JsonLoader.class);
     private static final ObjectMapper MAPPER = new ObjectMapper();
     public static <T> T loadConfig(String filePath, Class<T> clazz) {
         try {
 
-            var resilt = MAPPER.readValue(new File(baseDir+filePath),clazz);
+            var resilt = MAPPER.readValue(new File(basePath+filePath),clazz);
             logger.info("read credentials  {}", filePath);
             return resilt;
         }
