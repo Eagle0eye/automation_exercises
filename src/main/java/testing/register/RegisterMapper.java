@@ -1,6 +1,5 @@
-package testing.mapper;
+package testing.register;
 
-import testing.dto.RegisterForm;
 import util.JsonLoader;
 
 public class RegisterMapper {

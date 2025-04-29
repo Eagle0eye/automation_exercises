@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class JsonLoader {
-    private static final String basePath = "/home/yousef/dumy/QA-Testing/automation_exercises/src/main/resources";
+    private static final String basePath = "/home/yousef/dumy/QA-Testing/automation_exercises/src/main/resources/test-data";
     private static final Logger logger = LoggerFactory.getLogger(JsonLoader.class);
     private static final ObjectMapper MAPPER = new ObjectMapper();
     public static <T> T loadConfig(String filePath, Class<T> clazz) {

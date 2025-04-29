@@ -1,14 +1,14 @@
 {
   "name": "Automation Test",
-  "email": "automation@armyspy.com\"",
+  "email": "automation6@armyspy.com",
   "password": "auto12345678",
 
-  "day": 15,
-  "month": 6,
-  "year": 2005,
+  "day": "15",
+  "month": "6",
+  "year": "2005",
 
-  "newsletters": true,
-  "special_offers": true,
+  "newsletters": "true",
+  "special_offers": "true",
 
   "firstname": "Automation",
   "lastname": "Test",
@@ -21,5 +21,5 @@
   "country": "United States",
   "city": "New York",
   "state": "NY",
-  "zip": "10001"
+  "zipcode": "10001"
 }

@@ -1,6 +1,5 @@
-package testing.locators;
+package testing.register;
 
-import lombok.Getter;
 import org.openqa.selenium.By;
 
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package testing.dto;
+package testing.register;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,10 +8,10 @@ import lombok.Setter;
 public class RegisterForm {
 
     private String name, email, password;
-    private int day, month, year;
+    private String day, month, year;
     private boolean newsletters, special_offers;
     private String firstname, lastname, company, phone;
-    private String address1, address2, country, city, state, zip;
+    private String address1, address2, country, city, state, zipcode;
 
 
 }

@@ -1,95 +1,66 @@
 package testing.pages;
 
-
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import testing.dto.RegisterForm;
-import testing.locators.RegisterLocators;
+import org.openqa.selenium.support.ui.Select;
+import testing.register.RegisterForm;
 
 import java.util.Map;
 
-import static testing.mapper.RegisterMapper.ToRegisterForm;
+import static testing.register.RegisterMapper.ToRegisterForm;
+import static util.LocatorLoader.loadLocators;
 
 public class RegisterPage extends BasePage {
+    private final Map<String, By> locators = loadLocators("/registerPage.json");
+    private final Map<String, By> validators = loadLocators("/validators/register.json");
 
-    private final By submit = By.id("submit");
+
     public RegisterPage(WebDriver driver) {
         super(driver);
     }
-    public RegisterPage clickRegisterButton(String path) {
 
+
+
+    public RegisterPage fillRegisterForm(String path) {
+        // Get WebElements Links
         RegisterForm form = ToRegisterForm(path);
-        By registeredName = By.cssSelector(".signup-form > form:nth-child(2) > input:nth-child(2)");
-        By registeredEmail = By.cssSelector(".signup-form > form:nth-child(2) > input:nth-child(3)");
-        By signup = By.cssSelector("button.btn:nth-child(5)");
 
-        driver.findElement(registeredName).sendKeys(form.getName());
-        driver.findElement(registeredEmail).sendKeys(form.getEmail());
-        log.info("~register with name : {} email: {}",form.getName(),form.getEmail());
-        driver.findElement(signup).click();
-        return new RegisterPage(driver);
-    }
+        // Initialize the WebElements using locators
+        driver.findElement(locators.get("title")).click();
+        driver.findElement(locators.get("name")).sendKeys(form.getName());
+        driver.findElement(locators.get("password")).sendKeys(form.getPassword());
 
-    public void fillRegisterForm(String path) {
-        Map<String, By> locators = new RegisterLocators().formLocators();
-        WebElement title = driver.findElement(locators.get("title"));
+        selectValue(locators.get("day")).selectByValue(form.getDay());
+        selectValue(locators.get("month")).selectByValue(form.getMonth());
+        selectValue(locators.get("year")).selectByValue(form.getYear());
 
-        WebElement name = driver.findElement(locators.get("name"));
-        WebElement email = driver.findElement(locators.get("email"));
-        WebElement password = driver.findElement(locators.get("password"));
+        driver.findElement(locators.get("newsletter")).click();
+        driver.findElement(locators.get("special_offers")).click();
 
-        WebElement days = driver.findElement(locators.get("days"));
-        WebElement months = driver.findElement(locators.get("months"));
-        WebElement years = driver.findElement(locators.get("years"));
+        driver.findElement(locators.get("firstname")).sendKeys(form.getFirstname());
+        driver.findElement(locators.get("lastname")).sendKeys(form.getLastname());
+
+        driver.findElement(locators.get("company")).sendKeys(form.getCompany());
 
 
-        WebElement newsletter = driver.findElement(locators.get("newsletter"));
-        WebElement special_offers = driver.findElement(locators.get("special_offers"));
+        driver.findElement(locators.get("address1")).sendKeys(form.getAddress1());
+        driver.findElement(locators.get("address2")).sendKeys(form.getAddress2());
 
-        WebElement firstname = driver.findElement(locators.get("firstname"));
-        WebElement lastname = driver.findElement(locators.get("lastname"));
+        selectValue(locators.get("country")).selectByValue(form.getCountry());
+        driver.findElement(locators.get("state")).sendKeys(form.getState());
+        driver.findElement(locators.get("city")).sendKeys(form.getCity());
+        driver.findElement(locators.get("zipcode")).sendKeys(form.getZipcode());
+        driver.findElement(locators.get("mobileNumber")).sendKeys(form.getPhone());
+        driver.findElement(locators.get("submit")).click();
 
-        WebElement company = driver.findElement(locators.get("company"));
-        WebElement mobileNumber = driver.findElement(locators.get("mobileNumber"));
-
-        WebElement address1 = driver.findElement(locators.get("address1"));
-        WebElement address2 = driver.findElement(locators.get("address2"));
-        WebElement country = driver.findElement(locators.get("country"));
-        WebElement state = driver.findElement(locators.get("state"));
-        WebElement city = driver.findElement(locators.get("city"));
-        WebElement zip = driver.findElement(locators.get("zipcode"));
-
-
-        RegisterForm form = ToRegisterForm(path);
-        title.click();
-        name.sendKeys(form.getName());
-        password.sendKeys(form.getPassword());
-
-        days.sendKeys(String.valueOf(form.getDay()));
-        months.sendKeys(String.valueOf(form.getMonth()));
-        years.sendKeys(String.valueOf(form.getYear()));
-
-        newsletter.click();
-        special_offers.click();
-
-        firstname.sendKeys(form.getFirstname());
-        lastname.sendKeys(form.getLastname());
-
-        address1.sendKeys(form.getAddress1());
-        address2.sendKeys(form.getAddress2());
-
-        company.sendKeys(form.getCompany());
-        country.sendKeys(form.getCountry());
-        state.sendKeys(form.getState());
-        city.sendKeys(form.getCity());
-        zip.sendKeys(form.getZip());
-
-        mobileNumber.sendKeys(form.getPhone());
+        return this;
     }
 
 
-    
 
+    private Select selectValue(By locator) {
+        WebElement dropdown = driver.findElement(locator);
+        return new Select(dropdown);
+    }
 }

@@ -1,0 +1,81 @@
+{
+  "page": "register",
+
+  "title": {
+    "type": "id",
+    "value": "id_gender1"
+  },
+  "name": {
+    "type": "id",
+    "value": "name"
+  },
+  "password": {
+    "type": "id",
+    "value": "password"
+  },
+  "day": {
+    "type": "id",
+    "value": "days"
+  },
+  "month": {
+    "type": "id",
+    "value": "months"
+  },
+  "year": {
+    "type": "id",
+    "value": "years"
+  },
+  "newsletter": {
+    "type": "id",
+    "value": "newsletter"
+  },
+  "special_offers": {
+    "type": "id",
+    "value": "optin"
+  },
+  "firstname": {
+    "type": "id",
+    "value": "first_name"
+  },
+  "lastname": {
+    "type": "id",
+    "value": "last_name"
+  },
+  "company": {
+    "type": "id",
+    "value": "company"
+  },
+  "country": {
+    "type": "id",
+    "value": "country"
+  },
+  "address1": {
+    "type": "id",
+    "value": "address1"
+  },
+  "address2": {
+    "type": "id",
+    "value": "address2"
+  },
+  "state": {
+    "type": "id",
+    "value": "state"
+  },
+  "city": {
+    "type": "id",
+    "value": "city"
+  },
+  "zipcode": {
+    "type": "id",
+    "value": "zipcode"
+  },
+  "mobileNumber": {
+    "type": "id",
+    "value": "mobile_number"
+  },
+  "submit":
+  {
+    "type":"css",
+    "value": "button.btn:nth-child(22)"
+  }
+}

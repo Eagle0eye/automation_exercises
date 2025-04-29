@@ -2,12 +2,16 @@ package testing.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import testing.dto.RegisterForm;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import testing.register.RegisterForm;
 
-import static testing.mapper.RegisterMapper.ToRegisterForm;
+import java.util.Map;
+
+import static testing.register.RegisterMapper.ToRegisterForm;
+import static util.LocatorLoader.loadLocators;
 
 public class LoginPage extends BasePage{
-
+    private final Map<String, By> locators = loadLocators("/loginPage.json");
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -15,15 +19,24 @@ public class LoginPage extends BasePage{
 
     public void login(String entered_email, String entered_password) {
 
-        By email = By.cssSelector(".login-form > form:nth-child(2) > input:nth-child(2)");
-        By password = By.cssSelector(".login-form > form:nth-child(2) > input:nth-child(3)");
-        By login = By.cssSelector(".login-form > form:nth-child(2) > input:nth-child(3)");
 
-        driver.findElement(email).sendKeys(entered_email);
-        driver.findElement(password).sendKeys(entered_password);
-        driver.findElement(login).click();
-        log.info("~login email: {} password: {}",entered_email ,entered_password );
+
+        driver.findElement(locators.get("email")).sendKeys(entered_email);
+        driver.findElement(locators.get("password")).sendKeys(entered_password);
+        driver.findElement(locators.get("loginButton")).click();
+        log.info("login email: {} password: {}",entered_email ,entered_password );
     }
+    public RegisterPage register(String path) {
+
+        RegisterForm form = ToRegisterForm(path);
+
+        driver.findElement(locators.get("registeredName")).sendKeys(form.getName());
+        driver.findElement(locators.get("registeredEmail")).sendKeys(form.getEmail());
+        log.info("register with name : {} email: {}", form.getName(), form.getEmail());
+        driver.findElement(locators.get("signupButton")).click();
+        return new RegisterPage(driver);
+    }
+
 
 
 }

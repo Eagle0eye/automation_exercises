@@ -1,0 +1,12 @@
+{
+  "page": "valid login",
+
+  "message": {
+    "type": "css",
+    "value": ".login-form > h2:nth-child(1)"
+  },
+  "continue": {
+    "type": "css",
+    "value": "a.btn"
+  }
+}
