@@ -1,4 +1,4 @@
-package interfaces;
+package testing.interfaces;
 
 public interface baseActions {
     void logout();

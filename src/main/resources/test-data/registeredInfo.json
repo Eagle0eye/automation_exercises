@@ -1,21 +1,25 @@
 {
-  "title": "Mr",
-  "name": "John Doe",
-  "email": "john.doe@example.com",
-  "password": "SecurePass123!",
-  "day": 15,
-  "month": 6,
-  "year": 1990,
-  "signUpNewsLetter": true,
-  "ReceiveSpecialOffers": false,
-  "firstname": "John",
-  "lastname": "Doe",
+  "name": "Automation Test",
+  "email": "automation6@armyspy.com",
+  "password": "auto12345678",
+
+  "day": "15",
+  "month": "6",
+  "year": "2005",
+
+  "newsletters": "true",
+  "special_offers": "true",
+
+  "firstname": "Automation",
+  "lastname": "Test",
+
   "company": "Tech Solutions Inc.",
   "phone": "+1234567890",
+
   "address1": "123 Main St",
   "address2": "Apt 4B",
   "country": "United States",
   "city": "New York",
   "state": "NY",
-  "zip": "10001"
+  "zipcode": "10001"
 }

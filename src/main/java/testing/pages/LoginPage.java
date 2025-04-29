@@ -1,36 +1,42 @@
-package pages;
+package testing.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import testing.register.RegisterForm;
+
+import java.util.Map;
+
+import static testing.register.RegisterMapper.ToRegisterForm;
+import static util.LocatorLoader.loadLocators;
 
 public class LoginPage extends BasePage{
-
-    // Login
-    public final By email = By.id("email");
-    public final By password = By.id("password");
-    public final By login = By.id("login");
-
-    // Register
-    public final By registeredName = By.id("name");
-    public final By registeredEmail = By.id("email");
-    public final By signup = By.id("register");
+    private final Map<String, By> locators = loadLocators("/loginPage.json");
 
     public LoginPage(WebDriver driver) {
         super(driver);
     }
 
     public void login(String entered_email, String entered_password) {
-        driver.findElement(email).sendKeys(entered_email);
-        driver.findElement(password).sendKeys(entered_password);
-        driver.findElement(login).click();
-        log.info("~login email: {} password: {}",entered_email ,entered_password );
-    }
 
-    public RegisterPage clickRegisterButton(String name,String email) {
-        driver.findElement(registeredName).sendKeys(name);
-        driver.findElement(registeredEmail).sendKeys(email);
-        log.info("~register with name : {} email: {}",name,email);
-        driver.findElement(signup).click();
+
+
+        driver.findElement(locators.get("email")).sendKeys(entered_email);
+        driver.findElement(locators.get("password")).sendKeys(entered_password);
+        driver.findElement(locators.get("loginButton")).click();
+        log.info("login email: {} password: {}",entered_email ,entered_password );
+    }
+    public RegisterPage register(String path) {
+
+        RegisterForm form = ToRegisterForm(path);
+
+        driver.findElement(locators.get("registeredName")).sendKeys(form.getName());
+        driver.findElement(locators.get("registeredEmail")).sendKeys(form.getEmail());
+        log.info("register with name : {} email: {}", form.getName(), form.getEmail());
+        driver.findElement(locators.get("signupButton")).click();
         return new RegisterPage(driver);
     }
+
+
+
 }

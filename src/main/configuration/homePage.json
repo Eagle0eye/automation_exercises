@@ -1,0 +1,39 @@
+{
+  "page": "home",
+
+  "products": {
+    "type": "linktext",
+    "value": "Products"
+  },
+  "cart": {
+    "type": "linktext",
+    "value": "Cart"
+  },
+  "signup_login": {
+    "type": "linktext",
+    "value": "Signup / Login"
+  },
+  "testcases": {
+    "type": "linktext",
+    "value": "Test Cases"
+  },
+  "api_testing": {
+    "type": "linktext",
+    "value": "API Testing"
+  },
+  "video_tutorial": {
+    "type": "linktext",
+    "value": "Video Tutorial"
+  },
+  "contactus": {
+    "type": "linktext",
+    "value": "contact US"
+  },
+  "logout": {
+    "type": "linktext",
+    "value": "contact US"
+  },"delete_account": {
+  "type": "linktext",
+  "value": "contact US"
+}
+}
